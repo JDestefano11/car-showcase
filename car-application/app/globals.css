@@ -9,53 +9,99 @@
   font-family: "Manrope", sans-serif;
 }
 
-/*General styles */
-
-.max-width {
-  @apply max-w-[1440px] mx-auto;
+body {
+  background-color: #1E1E1E;
+  background-image: 
+    linear-gradient(135deg, rgba(255, 0, 0, 0.05) 0%, rgba(30, 30, 30, 0) 70%),
+    radial-gradient(circle at 80% 10%, rgba(255, 0, 0, 0.08), transparent 40%),
+    radial-gradient(circle at 10% 80%, rgba(192, 192, 192, 0.05), transparent 30%);
+  background-attachment: fixed;
+  color: #FFFFFF;
+  overflow-x: hidden;
+  position: relative;
 }
 
-.padding-x {
-  @apply sm:px-16 px-6;
+/* Button Styles */
+.custom-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 
-.padding-y {
-  @apply py-4;
+.custom-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
 }
 
+.custom-btn:hover::after {
+  transform: translateX(100%);
+}
+
+/* Feature Tag Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulse {
+  0% { opacity: 0.8; }
+  50% { opacity: 1; }
+  100% { opacity: 0.8; }
+}
+
+.feature-tag {
+  animation: float 4s ease-in-out infinite;
+  backdrop-filter: blur(8px);
+}
+
+.animation-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animation-delay-400 {
+  animation-delay: 0.4s;
+}
+
+/* Performance Text Animation */
+@keyframes textGlow {
+  0% { text-shadow: 0 0 10px rgba(255, 0, 0, 0.5); }
+  50% { text-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 0, 0, 0.3); }
+  100% { text-shadow: 0 0 10px rgba(255, 0, 0, 0.5); }
+}
+
+.animate-pulse {
+  animation: textGlow 2s ease-in-out infinite;
+}
+
+/* Utility Classes */
 .flex-center {
-  @apply flex items-center justify-center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .flex-between {
-  @apply flex justify-between items-center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.custom-btn {
-  @apply flex flex-row relative justify-center items-center py-3 px-6 outline-none;
-}
-
-/* Hero styles */
-.hero {
-  @apply flex xl:flex-row flex-col gap-5 relative z-0 max-w-[1440px] mx-auto;
-}
-
-.hero__title {
-  @apply 2xl:text-[72px] sm:text-[64px] text-[50px] font-extrabold;
-}
-
-.hero__subtitle {
-  @apply text-[27px] text-black-100 font-light mt-5;
-}
-
-.hero__image-container {
-  @apply xl:flex-[1.5] flex justify-end items-end w-full xl:h-screen;
-}
-
-.hero__image {
-  @apply relative xl:w-full w-[90%] xl:h-full h-[590px] z-0;
-}
-
-.hero__image-overlay {
-  @apply absolute xl:-top-24 xl:-right-1/2 -right-1/4 bg-hero-bg bg-repeat-round -z-10 w-full xl:h-screen h-[590px] overflow-hidden;
+.max-width {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
 }

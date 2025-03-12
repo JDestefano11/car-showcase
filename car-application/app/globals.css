@@ -10,15 +10,34 @@
 }
 
 body {
-  background-color: #1E1E1E;
-  background-image: 
-    linear-gradient(135deg, rgba(255, 0, 0, 0.05) 0%, rgba(30, 30, 30, 0) 70%),
-    radial-gradient(circle at 80% 10%, rgba(255, 0, 0, 0.08), transparent 40%),
-    radial-gradient(circle at 10% 80%, rgba(192, 192, 192, 0.05), transparent 30%);
-  background-attachment: fixed;
+  background: linear-gradient(135deg, #1a0a0a 0%, #1a0e0e 40%, #1e1212 70%, #221515 100%);
+  position: relative;
   color: #FFFFFF;
   overflow-x: hidden;
-  position: relative;
+}
+
+/* Add gradient overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 5% 10%, rgba(255, 0, 0, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 95% 90%, rgba(255, 0, 0, 0.08) 0%, transparent 50%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Add subtle noise texture */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: -1;
 }
 
 /* Button Styles */
@@ -47,6 +66,27 @@ body {
 
 .custom-btn:hover::after {
   transform: translateX(100%);
+}
+
+/* Animation Delay Utilities */
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animation-delay-400 {
+  animation-delay: 400ms;
+}
+
+.animation-delay-600 {
+  animation-delay: 600ms;
+}
+
+.animation-delay-800 {
+  animation-delay: 800ms;
+}
+
+.animation-delay-1000 {
+  animation-delay: 1000ms;
 }
 
 /* Feature Tag Animations */
@@ -104,4 +144,17 @@ body {
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Glass effect */
+.glass-effect {
+  background: rgba(30, 30, 30, 0.3);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Shadow effects */
+.shadow-glow {
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
 }

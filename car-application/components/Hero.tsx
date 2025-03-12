@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import CustomButton from "./CustomButton";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   const handleScroll = () => {
@@ -22,7 +23,12 @@ const Hero = () => {
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12 pt-24 lg:pt-32 pb-8 lg:pb-12 relative z-10"> 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Text Content */}
-          <div className="relative z-10">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="relative z-10"
+          >
             <div className="relative">
               <div className="absolute -left-4 top-0 h-full w-1 bg-secondary rounded-full"></div>
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight text-text">
@@ -41,16 +47,26 @@ const Hero = () => {
               </p>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4 mt-10">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              className="flex flex-col sm:flex-row gap-4 mt-10"
+            >
               <CustomButton
                 title="EXPLORE FLEET"
                 containerStyles="bg-secondary text-text rounded-md hover:bg-secondary-light transition-all duration-300 transform hover:scale-105 hover:shadow-glow"
                 handleClick={handleScroll}
               />
-            </div>
+            </motion.div>
 
             {/* Rental Benefits */}
-            <div className="mt-12 grid grid-cols-3 gap-4 sm:gap-8">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+              className="mt-12 grid grid-cols-3 gap-4 sm:gap-8"
+            >
               <div className="bg-gradient-to-br from-primary-light/90 to-primary-light/60 p-5 rounded-lg shadow-md backdrop-blur-sm hover:translate-y-[-3px] transition-transform duration-300">
                 <p className="text-2xl font-bold text-secondary">24/7</p>
                 <p className="text-text-muted text-sm">Premium Support</p>
@@ -63,11 +79,16 @@ const Hero = () => {
                 <p className="text-2xl font-bold text-secondary">ELITE</p>
                 <p className="text-text-muted text-sm">Experience</p>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Simple Vehicle Showcase */}
-          <div className="relative h-[400px] lg:h-[600px] flex items-center justify-center">
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            className="relative h-[400px] lg:h-[600px] flex items-center justify-center"
+          >
             {/* Professional background behind the car */}
             <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
               {/* Modern geometric shape behind car */}
@@ -108,7 +129,7 @@ const Hero = () => {
               {/* Subtle reflection effect */}
               <div className="absolute bottom-[10%] left-0 right-0 mx-auto w-[50%] h-[2px] bg-gradient-to-r from-transparent via-secondary/10 to-transparent blur-sm"></div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 

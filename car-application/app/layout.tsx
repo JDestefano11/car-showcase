@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, Montserrat } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "../components";
+import { Navbar, Footer } from "../components";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -30,6 +30,7 @@ export default function RootLayout({
       <body className={`${manrope.variable} ${montserrat.variable} ${manrope.className}`}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

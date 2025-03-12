@@ -16,7 +16,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-primary-dark/30 to-transparent opacity-70" />
       <div className="absolute inset-0 bg-hero-pattern mix-blend-overlay opacity-60" />
       
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-12 pt-24 lg:pt-32 pb-8 lg:pb-12"> {/* Increased top padding */}
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-12 pt-24 lg:pt-32 pb-8 lg:pb-12"> 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Text Content */}
           <div className="relative z-10">
@@ -32,11 +32,6 @@ const Hero = () => {
               <CustomButton
                 title="View Cars"
                 containerStyles="bg-secondary text-text rounded-md hover:bg-secondary-light transition-colors"
-                handleClick={handleScroll}
-              />
-              <CustomButton
-                title="Book Now"
-                containerStyles="bg-transparent text-text rounded-md border-2 border-accent hover:bg-accent/10 transition-colors"
                 handleClick={handleScroll}
               />
             </div>
@@ -58,28 +53,33 @@ const Hero = () => {
             </div>
           </div>
 
-           {/* Car Image Section with decorative shapes */}
+           {/* Professional Vehicle Showcase */}
            <div className="relative h-[400px] lg:h-[600px] flex items-center justify-center">
-            {/* Decorative shape behind car */}
+            {/* Professional display platform */}
             <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-              {/* Base shape - oval platform */}
-              <div className="absolute bottom-[15%] w-[85%] h-[25%] bg-gradient-to-r from-secondary/40 via-accent/50 to-secondary/40 rounded-[50%] filter blur-md transform rotate-[-2deg]"></div>
+              {/* Elegant base platform */}
+              <div className="absolute bottom-[15%] w-[85%] h-[20%] bg-gradient-to-r from-secondary/30 via-accent/40 to-secondary/30 rounded-[50%] filter blur-sm"></div>
               
-              {/* Dynamic background shapes */}
-              <div className="absolute w-[70%] h-[60%] bg-secondary/25 rounded-tr-[70%] rounded-bl-[70%] filter blur-lg transform rotate-12 translate-x-[-5%]"></div>
-              <div className="absolute w-[60%] h-[50%] bg-accent/30 rounded-tl-[60%] rounded-br-[60%] filter blur-lg transform rotate-[-8deg] translate-x-[10%]"></div>
+              {/* Subtle professional background elements */}
+              <div className="absolute w-[75%] h-[65%] bg-secondary/15 rounded-[50%] filter blur-lg"></div>
+              <div className="absolute w-[65%] h-[55%] bg-accent/20 rounded-[50%] filter blur-lg"></div>
               
-              {/* Highlight accent */}
-              <div className="absolute top-[30%] right-[30%] w-[20%] h-[15%] bg-white/20 rounded-full filter blur-md"></div>
+              {/* Professional lighting effect */}
+              <div className="absolute top-[25%] right-[25%] w-[30%] h-[20%] bg-white/10 rounded-full filter blur-md"></div>
             </div>
+            {/* Vehicle display with professional presentation */}
             <div className="relative w-full h-full z-10">
               <Image
                 src="/Camry.png"
-                alt="Rental Car"
+                alt="Premium Rental Vehicle"
                 fill
                 className="object-contain object-center"
                 priority
               />
+              {/* Professional vehicle highlight */}
+              <div className="absolute bottom-[10%] left-0 right-0 text-center text-sm text-text-muted font-light opacity-80">
+                <p>Toyota Camry • Premium Sedan • Excellent Fuel Economy</p>
+              </div>
             </div>
           </div>
         </div>
